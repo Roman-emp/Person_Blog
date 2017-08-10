@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8" />
+        <title>Simple example - Editor.md examples</title>
+        <link rel="stylesheet" href="__WEB_SITE__public/editor.md/examples/css/style.css" />
+        <link rel="stylesheet" href="__WEB_SITE__public/editor.md/css/editormd.css" />
+        <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="__CSS_PATH__primer.css">
+        <link rel="stylesheet" href="__CSS_PATH__user-content.min.css">
+        <link rel="stylesheet" href="__CSS_PATH__octicons.css">
+        <link rel="stylesheet" href="__CSS_PATH__collection.css">
+        <link rel="stylesheet" href="__CSS_PATH__repo-card.css">
+        <link rel="stylesheet" href="__CSS_PATH__repo-list.css">
+        <link rel="stylesheet" href="__CSS_PATH__mini-repo-list.css">
+        <link rel="stylesheet" href="__CSS_PATH__boxed-group.css">
+        <link rel="stylesheet" href="__CSS_PATH__common.css">
+        <link rel="stylesheet" href="__CSS_PATH__share.min.css">
+        <link rel="stylesheet" href="__CSS_PATH__responsive.css">
+        <link rel="stylesheet" href="__CSS_PATH__index.css">
+        <link rel="stylesheet" href="__CSS_PATH__prism.css">
+    </head>
+    <body class="home">
+        {include Index/head.html}
+    <div id="layout">
+        <header>
+            <h1>发表博文</h1>
+        </header>
+        <form action="index.php?m=index&c=Blog&a=articleInsert" method="post">
+             <div style="position:relative;left:40%;top:-10px;">
+                <th align="center">博客标题</th>
+                <th><input type="text" name="title"></th>
+            </div>
+           <table width=1000 style="margin:0 auto;">
+                                 
+                <tr>
+                    <td colspan="2">
+                        <div id="test-editormd">
+                            <textarea style="display:none;" name='con'></textarea>
+                         </div>
+                     </td>
+                  
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            <div style="position:relative;left:30%;">
+                <th><input type="submit" value="提交" /></th>
+            </div>
+        </form>
+    </div>
+   <script src="__WEB_SITE__public/editor.md/examples/js/jquery.min.js"></script>
+   <script src="__WEB_SITE__public/editor.md/editormd.min.js"></script>
+   <script type="text/javascript">
+			var testEditor;
+
+            $(function() {
+                testEditor = editormd("test-editormd", {
+                    width   : "60%",
+                    height  : 400,
+                    syncScrolling : "single",
+                    path    : "__WEB_SITE__public/editor.md/lib/"
+                });
+                
+                /*
+                // or
+                testEditor = editormd({
+                    id      : "test-editormd",
+                    width   : "90%",
+                    height  : 640,
+                    path    : "../lib/"
+                });
+                */
+            });
+        </script>
+    </body>
+</html>

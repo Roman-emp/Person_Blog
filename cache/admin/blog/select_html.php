@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="public/admin/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="public/admin/css/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="public/admin/css/style.css" />
+    <script type="text/javascript" src="public/admin/js/jquery2.js"></script>
+    <script type="text/javascript" src="public/admin/js/jquery2.sorted.js"></script>
+    <script type="text/javascript" src="public/admin/js/bootstrap.js"></script>
+    <script type="text/javascript" src="public/admin/js/ckform.js"></script>
+    <script type="text/javascript" src="public/admin/js/common.js"></script>
+
+    <style type="text/css">
+        body {font-size: 20px;
+		font-size: 20px;
+            padding-bottom: 40px;
+            background-color:#e9e7ef;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+
+
+    </style>
+</head>
+<body >
+<form class="form-inline definewidth m20" action="index.php?c=blog&m=admin&a=select" method="get">
+    <font color="#777777"><strong>视频名称：</strong></font>
+    <input type="text" name="title" id="menuname"class="abc input-default" placeholder="" value="">&nbsp;&nbsp; 
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp; 
+</form>
+<table class="table table-bordered table-hover definewidth m10" style="text-align:center">
+    <thead>
+    <tr>
+        <th>博客标题</th>
+        
+        <th>分类</th>
+        <th>上传者</th>
+        <th>上传日期</th>
+        
+        
+        <th>管理菜单</th>
+    </tr>
+    </thead>
+	    <?php foreach($data as $value):?> 
+        <tr>
+                <td><a href="index.php?c=blog&m=admin&a=details&bid=<?=$value['bid']?>"><?=$value['title']?></a></td>
+                <td><?=$value['type']?></td>
+                <td><a href="studentdetail.html"><?=$value['username']?></a></td>
+                <td><?php echo date('Y/m/d',$value['create_time']);?></td>
+                
+                <td> <button type="submit">删除</button></a></td>
+               
+        </tr>
+         <?php endforeach;?> 
+         <tr>
+            <td></td>
+            <td clospan="3">
+                <a href="<?=$headPage?>">首页</a>
+                <a href="<?=$prevPage?>">上一页</a>
+                <a href="<?=$nextPage?>">下一页</a>
+                <a href="<?=$tailPage?>">尾页</a>
+            </td>
+            <td></td>
+         </tr>
+       </table>
+
+</body>
+</html>
